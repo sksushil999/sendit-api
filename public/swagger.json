@@ -1,0 +1,1987 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.1",
+        "title": "Atoms API"
+    },
+    "host": "localhost:3010",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/messages": {
+            "post": {
+                "operationId": "create",
+                "description": "Starting sending email",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "mail",
+                        "in": "body",
+                        "description": "id to whom the email will be delivered",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/mail"
+                        }
+                    },
+                    {
+                        "name": "x-access-token",
+                        "in": "header",
+                        "description": " user token to be passed as a header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/mail"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/emails/send": {
+            "post": {
+                "operationId": "create",
+                "description": "Sending Email by posting data",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "mailByData",
+                        "in": "body",
+                        "description": "Send email by posting data in body",
+                        "schema": {
+                            "$ref": "#/definitions/mailByData"
+                        }
+                    },
+                    {
+                        "name": "client-code",
+                        "in": "header",
+                        "description": "client to be passed as a header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/messageResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/sms/send": {
+            "post": {
+                "operationId": "create",
+                "description": "Sending sms by posting data",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "smsByData",
+                        "in": "body",
+                        "description": "Send sms by posting data in body, Additional info of model is added in data part",
+                        "schema": {
+                            "$ref": "#/definitions/smsByData"
+                        }
+                    },
+                    {
+                        "name": "client-code",
+                        "in": "header",
+                        "description": "client to be passed as a header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/messageResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/push/send": {
+            "post": {
+                "operationId": "create",
+                "description": "Sending push message by posting data",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "pushByData",
+                        "in": "body",
+                        "description": "Send push message by posting data in body, Additional info of model is added in data part",
+                        "schema": {
+                            "$ref": "#/definitions/pushByData"
+                        }
+                    },
+                    {
+                        "name": "client-code",
+                        "in": "header",
+                        "description": "client to be passed as a header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/messageResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/users": {
+            "post": {
+                "operationId": "create",
+                "description": "To create new users in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "create",
+                    "in": "body",
+                    "description": "subscribe to a service by posting data in body",
+                    "schema": {
+                        "$ref": "#/definitions/userCreation"
+                    }
+                }, {
+                    "name": "client-code",
+                    "in": "header",
+                    "description": "client to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/userResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "operationId": "get",
+                "description": "To get a user with its id in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "description": "get a users with its id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "client-code",
+                        "in": "header",
+                        "description": "client to be passed as a header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/userResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/users/{subcribtionCode}/subscribe": {
+            "post": {
+                "operationId": "create",
+                "description": "If not usersId then it will create new users otherwise update existing. all in params(subscription code) will subscrobe to all notifications",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "subscribeusers",
+                        "in": "body",
+                        "description": "subscribe to a service by posting data in body",
+                        "schema": {
+                            "$ref": "#/definitions/subscription"
+                        }
+                    },
+                    {
+                        "name": "client-code",
+                        "in": "header",
+                        "description": "client to be passed as a header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "subcribtionCode",
+                        "in": "path",
+                        "description": "subcribe code of service which you want to activate",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/userResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/users/{subcribtionCode}/unSubscribe": {
+            "post": {
+                "operationId": "create",
+                "description": "all in params(subscription code) will unsubscribe to all notifications.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "subscribeusers",
+                    "in": "body",
+                    "description": "unsubscribe to a service by posting data in body",
+                    "schema": {
+                        "$ref": "#/definitions/unSubscription"
+                    }
+                }, {
+                    "name": "client-code",
+                    "in": "header",
+                    "description": "client to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }, {
+                    "name": "subcribtionCode",
+                    "in": "path",
+                    "description": "subcribe code of service which you want to activate",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/userResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/clients": {
+            "post": {
+                "operationId": "create",
+                "description": "To create new Client In Atoms API ",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "create",
+                    "in": "body",
+                    "description": " It create a user and client. the value in owner creates a new user In Atoms API . After setting provider additionaly APi key And domain are required for email and push ",
+                    "schema": {
+                        "$ref": "#/definitions/clientModel"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/clientModelResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/clients/my": {
+            "put": {
+                "operationId": "put",
+                "method": "PUT",
+                "description": "To update client in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "put",
+                        "in": "body",
+                        "description": "Update a CLient by posting data in body",
+                        "schema": {
+                            "$ref": "#/definitions/clientUpdate"
+                        }
+                    }, {
+                        "name": "x-access-token",
+                        "in": "header",
+                        "description": " User Token to be passed as a header",
+                        "required": true,
+                        "type": "string"
+                    }
+
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/clientGetResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "get",
+                "description": "To get a client with ith id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                        "name": "x-access-token",
+                        "in": "header",
+                        "description": "User token to be passed as a header",
+                        "required": true,
+                        "type": "string"
+                    }
+
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/clientGetResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/templates": {
+            "post": {
+                "operationId": "create",
+                "description": "To create a new template in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "create",
+                    "in": "body",
+                    "description": "Create a Template by posting data in body",
+                    "schema": {
+                        "$ref": "#/definitions/templateModel"
+                    }
+                }, {
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": " user token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/mail"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "get",
+                "description": "To get all templates from atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": " user token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/templateResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/templates/{id}": {
+            "get": {
+                "operationId": "create",
+                "description": "Get a Template by its id in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "template id is required",
+                    "required": true,
+                    "type": "string"
+                }, {
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": " User token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/templateResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "create",
+                "description": "To update a template in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "create",
+                    "in": "body",
+                    "description": "Update a template by posting data in body",
+                    "schema": {
+                        "$ref": "#/definitions/templateUpdate"
+                    }
+                }, {
+                    "name": "id",
+                    "in": "path",
+                    "description": "add id of template which you want to update",
+                    "required": true,
+                    "type": "string"
+                }, {
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": " user token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/templateResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/jobs": {
+            "post": {
+                "operationId": "create",
+                "description": "To create new Jobs in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "create",
+                    "in": "body",
+                    "description": "Create a new Job by posting data in body",
+                    "schema": {
+                        "$ref": "#/definitions/jobModel"
+                    }
+                }, {
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": " User token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/jobResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "create",
+                "description": "To get all jobs from atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": " User token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/jobResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/jobs/{id}": {
+            "get": {
+                "operationId": "create",
+                "description": "Get a Job with its id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "Get a Job with its id",
+                    "required": true,
+                    "type": "string"
+                }, {
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": "User token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/jobResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/jobs/{code}/run": {
+            "post": {
+                "operationId": "create",
+                "description": "To run a job in atoms api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "code",
+                    "in": "path",
+                    "description": "code of job which you want to run",
+                    "required": true,
+                    "type": "string"
+                }, {
+                    "name": "x-access-token",
+                    "in": "header",
+                    "description": " User token to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/jobResponse"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/docs/{jobCode}/{dataId}.pdf": {
+            "get": {
+                "operationId": "create",
+                "description": "To get a pdf",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application.json",
+                    "text/xml",
+                    "text/html"
+                ],
+                "parameters": [{
+                    "name": "jobCode",
+                    "in": "path",
+                    "description": "job code is required",
+                    "required": true,
+                    "type": "string"
+                }, {
+                    "name": "dataId",
+                    "in": "path",
+                    "description": "data Id is required",
+                    "required": true,
+                    "type": "string"
+                }, {
+                    "name": "client-code",
+                    "in": "header",
+                    "description": "client to be passed as a header",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "post response succcess",
+                        "schema": {
+                            "$ref": "#/definitions/mail"
+                        }
+                    }
+                },
+                "default": {
+                    "description": "post response succcess",
+                    "schema": {
+                        "$ref": "#/definitions/errorResponse"
+                    }
+                }
+            }
+        }
+
+
+    },
+    "definitions": {
+        "mail": {
+            "required": [
+                "job"
+            ],
+            "type": "object",
+            "properties": {
+                "job": {
+                    "required": "id",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "template": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "id": {
+                                    "type": "string"
+                                },
+                                "code": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "client": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "id": {
+                                    "type": "string"
+                                },
+                                "code": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "data": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "messageResponse": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "isSuccess": {
+                    "type": "boolean"
+                },
+                "message": {
+                    "type": "integer"
+                }
+            }
+        },
+        "mailByData": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "template": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "to": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "from": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "email": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "smsByData": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "template": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "to": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "from": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "sms": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "pushByData": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "template": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "to": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "from": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "push": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "userCreation": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "userId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "integer"
+                },
+                "deviceId": {
+                    "type": "string"
+                }
+            }
+        },
+        "userResponse": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "timeStamp": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscription": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "userId": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "integer"
+                },
+                "deviceId": {
+                    "type": "string"
+                }
+            }
+        },
+        "unSubscription": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "clientModel": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "owner": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "email": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "sms": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "push": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "notifications": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "subscriptions": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": "object",
+                                        "enabledByDefault": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "mailgun": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "domain": {
+                                    "type": "string"
+                                },
+                                "apiKey": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "oneSignal": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "url": {
+                                    "type": "string"
+                                },
+                                "app_id": {
+                                    "type": "string"
+                                },
+                                "Authorization": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "routesms": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "url": {
+                                    "type": "string"
+                                },
+                                "userName": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                },
+                                "source": {
+                                    "type": "string"
+                                },
+                                "dlr": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "clientModelResponse": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "owner": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "token": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "timeStamp": {
+                    "type": "string"
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "email": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "sms": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "push": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "notifications": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "subscriptions": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": "object",
+                                        "enabledByDefault": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "mailgun": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "domain": {
+                                    "type": "string"
+                                },
+                                "apiKey": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "oneSignal": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "url": {
+                                    "type": "string"
+                                },
+                                "app_id": {
+                                    "type": "string"
+                                },
+                                "Authorization": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "clientGetResponse": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "owner": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "timeStamp": {
+                    "type": "string"
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "email": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "sms": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "push": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "notifications": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "subscriptions": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": "object",
+                                        "enabledByDefault": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "mailgun": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "domain": {
+                                    "type": "string"
+                                },
+                                "apiKey": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "oneSignal": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "url": {
+                                    "type": "string"
+                                },
+                                "app_id": {
+                                    "type": "string"
+                                },
+                                "Authorization": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "clientUpdate": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "status": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "email": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "sms": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "push": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "provider": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "notifications": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "subscriptions": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": "object",
+                                        "enabledByDefault": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "mailgun": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "domain": {
+                                    "type": "string"
+                                },
+                                "apiKey": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "oneSignal": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "url": {
+                                    "type": "string"
+                                },
+                                "app_id": {
+                                    "type": "string"
+                                },
+                                "Authorization": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "templateModel": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "code": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "attachment": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "code": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "orientation": {
+                            "type": "string"
+                        },
+                        "width": {
+                            "type": "string"
+                        },
+                        "height": {
+                            "type": "string"
+                        },
+                        "border": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "left": {
+                                    "type": "string"
+                                },
+                                "right": {
+                                    "type": "string"
+                                },
+                                "top": {
+                                    "type": "string"
+                                },
+                                "bottom": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        "templateResponse": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "id": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "attachment": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "code": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "orientation": {
+                            "type": "string"
+                        },
+                        "width": {
+                            "type": "string"
+                        },
+                        "height": {
+                            "type": "string"
+                        },
+                        "border": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "left": {
+                                    "type": "string"
+                                },
+                                "right": {
+                                    "type": "string"
+                                },
+                                "top": {
+                                    "type": "string"
+                                },
+                                "bottom": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        "templateUpdate": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "code": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "orientation": {
+                            "type": "string"
+                        },
+                        "width": {
+                            "type": "string"
+                        },
+                        "height": {
+                            "type": "string"
+                        },
+                        "border": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "left": {
+                                    "type": "string"
+                                },
+                                "right": {
+                                    "type": "string"
+                                },
+                                "top": {
+                                    "type": "string"
+                                },
+                                "bottom": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        "jobModel": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "processor": {
+                    "type": "string"
+                },
+                "template": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "code": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "schedule": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "hour": {
+                            "type": "integer"
+                        },
+                        "minute": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "to": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "field": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "from": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "field": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+
+                    }
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "source": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "field": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "type": "string"
+                                },
+                                "headers": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": "object",
+                                        "x-api-token": {
+                                            "type": "string"
+                                        },
+                                        "orgCode": {
+                                            "type": "string"
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        },
+        "jobResponse": {
+            "type": "object",
+            "properties": {
+                "type": "object",
+                "id": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "processor": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "timeStamp": {
+                    "type": "string"
+                },
+                "template": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "id": {
+                            "type": "string"
+                        },
+                        "code": {
+                            "type": "string"
+                        },
+                        "subject": {
+                            "type": "string"
+                        },
+                        "body": {
+                            "type": "string"
+                        },
+                        "config": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "orientation": {
+                                    "type": "string"
+                                },
+                                "width": {
+                                    "type": "string"
+                                },
+                                "height": {
+                                    "type": "string"
+                                },
+                                "border": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": "object",
+                                        "left": {
+                                            "type": "string"
+                                        },
+                                        "right": {
+                                            "type": "string"
+                                        },
+                                        "top": {
+                                            "type": "string"
+                                        },
+                                        "bottom": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "schedule": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "hour": {
+                            "type": "integer"
+                        },
+                        "minute": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "to": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "field": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "from": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "field": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+
+                    }
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "source": {
+                            "type": "object",
+                            "properties": {
+                                "type": "object",
+                                "field": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "type": "string"
+                                },
+                                "headers": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": "object",
+                                        "x-api-token": {
+                                            "type": "string"
+                                        },
+                                        "orgCode": {
+                                            "type": "string"
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        },
+        "errorResponse": {
+            "required": "message",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

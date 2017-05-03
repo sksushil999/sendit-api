@@ -1,0 +1,38 @@
+{
+    "dbServer": {
+        "database": "sendit",
+        "host": "mongodb://localhost:27017/sendit"
+    },
+    "system": {
+        "emailId": "sunny.parkash@gmail.com"
+    },
+    "auth": {
+        "secret": "todo",
+        "tokenPeriod": 1440
+    },
+
+    "logger": {
+        "console": {
+            "level": "debug",
+            "handleExceptions": true,
+            "json": false,
+            "colorize": true
+        }
+    },
+    "webServer": {
+        "port": 3010,
+        "rootUrl": "todo"
+    },
+    "email": {
+        "provider": "mailgun"
+    },
+    "sms": {
+        "provider": "twilio"
+    },
+
+    "smtp": {},
+    "mailgun": {},
+    "oneSignal": {},
+    "routesms": {},
+    "twilio": {}
+}

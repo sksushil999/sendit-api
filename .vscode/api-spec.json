@@ -1,0 +1,745 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2017-01-03T07:21:27.403Z",
+	"__export_source": "insomnia.desktop.app:v4.0.12",
+	"resources": [
+		{
+			"_id": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"parentId": null,
+			"modified": 1477660183485,
+			"created": 1476132640974,
+			"name": "atoms",
+			"description": "",
+			"certificates": [],
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_iu4j9xd9dwxX3jnw2VZjAzMK",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1476132700721,
+			"created": 1476132664365,
+			"name": "Base Environment",
+			"data": {},
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_iu4j9xe39PeNzFjJ9bZwU7Aq",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1483425695627,
+			"created": 1476132664395,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_119a4ab5da694faaab0d333e76e9f45b",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1483290581637,
+			"created": 1483290581637,
+			"name": "users",
+			"environment": {},
+			"metaSortKey": -1483290581637,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_412143819e8348b49528906bfc4547a0",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1483425395851,
+			"created": 1483274931560,
+			"name": "setup-asi",
+			"environment": {},
+			"metaSortKey": -1483317038468.5,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_5390f0cf5ec741ad88c0049a1e9282fd",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1482994520369,
+			"created": 1482994520369,
+			"name": "clients",
+			"environment": {},
+			"metaSortKey": -1482994520369,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_6f53055293404ca380eec9ec4dc05a73",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1483252135696,
+			"created": 1483252135696,
+			"name": "jobs",
+			"environment": {},
+			"metaSortKey": -1483252135696,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_94116ef6667a4919b060f3dd9ba912d2",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1483251602978,
+			"created": 1483251602978,
+			"name": "email",
+			"environment": {},
+			"metaSortKey": -1483251602978,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_97dfda738a2247dab0373cb94c8ecf80",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1483343495300,
+			"created": 1483343495300,
+			"name": "setup-kmt",
+			"environment": {},
+			"metaSortKey": -1483343495300,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_f688c9f267e7454b8f09ff27aa70497b",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1482994480308,
+			"created": 1482994480308,
+			"name": "templates",
+			"environment": {},
+			"metaSortKey": -1482994480308,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_iu4j9p1iQfHEGj64euYqnmAM",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1482994457012,
+			"created": 1476132653574,
+			"url": "{{host}}/emails",
+			"name": "send email",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"job\": {\n\t\t\"id\": 1\n\t},\n\t\"source\": {\n\t\t\"inject\": {\n\t\t\t\"shiftDate\": \"today\",\n\t\t\t\"status\": \"missedSwipe\",\n\t\t\t\"token\": \"4D8E7C19-457E-4F9E-9448-63FB573ED6D9\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1476132653574,
+			"_type": "request"
+		},
+		{
+			"_id": "req_iutic0bx9qQQC8cF6ugAH5Mw",
+			"parentId": "wrk_iu4j9fbi9JuvkPySCMgGZtGY",
+			"modified": 1477802257601,
+			"created": 1477642736301,
+			"url": "{{host}}/emails",
+			"name": "email from template",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"client\": {\n\t\t\"code\": \"gku\"\n\t},\n\t\"template\": {\n\t\t\"code\": \"greetings-diwali-gku\"\n\t},\n\t\"data\": {\n\t\t\"to\": {\n            \"field\": \"User.Email\"\n        },\n        \"from\": \"Guru Kashi University<info@gurukashiuniversity.in>\",\n\t\t\"data\": {\n            \"source\": {\n                \"url\": \"http://edu-api.azurewebsites.net/api/v2/employees/search?f%5B0%5D%5Bf%5D=employee_status&f%5B0%5D%5Bo%5D=eq&f%5B0%5D%5Bv%5D=approved&noPaging=true&api-token=4D8E7C19-457E-4F9E-9448-63FB573ED6D9\",\n                \"field\": \"items\",\n                \"type\": \"array\",\n                \"inject\": {\n                    \"status\": \"approved\",\n                    \"token\": \"4D8E7C19-457E-4F9E-9448-63FB573ED6D9\"\n                },\n                \"headers\": {\n                    \"orgCode\": \"gku\"\n                }\n            }\n        }\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477642736301,
+			"_type": "request"
+		},
+		{
+			"_id": "env_530af8667c33418aa839fafe92a60192",
+			"parentId": "env_iu4j9xd9dwxX3jnw2VZjAzMK",
+			"modified": 1483353681643,
+			"created": 1483290753919,
+			"name": "local-asi",
+			"data": {
+				"host": "http://localhost:3010/api",
+				"clientCode": "asi",
+				"myId": "586901db99b016206af9552a",
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6IjU4NjkwMWRiOTliMDE2MjA2YWY5NTUyYiIsInVzZXJJZCI6IjU4NjkwMWRiOTliMDE2MjA2YWY5NTUyYSIsImlhdCI6MTQ4MzM1MzY1MywiZXhwIjoxNDgzMzU1MDkzfQ.OUEndwyC0Mal2moNi9dhpgNxU8800AwW549ojZz2FqU"
+			},
+			"_type": "environment"
+		},
+		{
+			"_id": "env_af8b39ca90124c0082854a62682bd284",
+			"parentId": "env_iu4j9xd9dwxX3jnw2VZjAzMK",
+			"modified": 1483345084183,
+			"created": 1483343356079,
+			"name": "local-kmt",
+			"data": {
+				"host": "http://localhost:3010/api",
+				"clientCode": "kmt",
+				"myId": "586a0c8fbce799413e976a12",
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6IjU4NmEwYzhmYmNlNzk5NDEzZTk3NmExMyIsInVzZXJJZCI6IjU4NmEwYzhmYmNlNzk5NDEzZTk3NmExMiIsImlhdCI6MTQ4MzM0NTAzOSwiZXhwIjoxNDgzMzQ2NDc5fQ.xP_PUZNVs9fHtbKl2y2vPK43_A1QdAkzB00w3vpjV5c"
+			},
+			"_type": "environment"
+		},
+		{
+			"_id": "env_iu4jc3zjxkN5jxWngYM4wVBJ",
+			"parentId": "env_iu4j9xd9dwxX3jnw2VZjAzMK",
+			"modified": 1483290747636,
+			"created": 1476132766255,
+			"name": "local-gku",
+			"data": {
+				"host": "http://localhost:3010/api",
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6IjU4NjhmMTFmMTY5ZDcwMWUwOGFiYmI3MCIsInVzZXJJZCI6IjU4NjhmMTFmMTY5ZDcwMWUwOGFiYmI2ZiIsImlhdCI6MTQ4MzI3MjQ3OSwiZXhwIjoxNDgzMjczOTE5fQ.HMxezoxXoPYNFtB5iemhU7SxRkuuG9eJKo15OsQ_V2w",
+				"client-code": "gku",
+				"asi-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6IjU4NjkwMWRiOTliMDE2MjA2YWY5NTUyYiIsInVzZXJJZCI6IjU4NjkwMWRiOTliMDE2MjA2YWY5NTUyYSIsImlhdCI6MTQ4MzI3Njc2MywiZXhwIjoxNDgzMjc4MjAzfQ.NRifXP0nJzd7iLtcJVKYhFAaMno0ZQnpx9ZO9RlyT8g"
+			},
+			"_type": "environment"
+		},
+		{
+			"_id": "env_iu57d77eAPqbPJ5t35u2Csaj",
+			"parentId": "env_iu4j9xd9dwxX3jnw2VZjAzMK",
+			"modified": 1476173146225,
+			"created": 1476173127866,
+			"name": "prod",
+			"data": {
+				"host": "http://atoms-api.m-sas.com/api"
+			},
+			"_type": "environment"
+		},
+		{
+			"_id": "req_606c6ae9d318495388c5725a304d19f3",
+			"parentId": "fld_119a4ab5da694faaab0d333e76e9f45b",
+			"modified": 1483290651894,
+			"created": 1483290594345,
+			"url": "{{host}}/users/{{myId}}",
+			"name": "get by id",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1483290594345,
+			"_type": "request"
+		},
+		{
+			"_id": "req_4115e389945f4238b71aa3327f602d62",
+			"parentId": "fld_412143819e8348b49528906bfc4547a0",
+			"modified": 1483353764358,
+			"created": 1483275483697,
+			"url": "{{host}}/templates",
+			"name": "3. create email template",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": " {\n     \"code\": \"ticket-email\",\n\t \"attachment\": \"ticket-pdf\",\n     \"subject\": \"{{monument.name}} ticket\",\n     \"body\": \"Dear Customer,<br><p>Warm greetings!</p><p>Thank you for your interest in booking e-ticket.</p><p>Click <a href='http://asi.payumoney.com/tickets/{{id}}.pdf'> here </a> to get your ticket. You need Adobe Acrobat Reader 6.0 or above to open the file.</p><p>Should you have any queries, please do not hesitate to email us at care@payumoney.com.</p><br>Best Regards,<br>PayUMoney Team\"\n }"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215569.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_470ec3cf8ae149eaaaf92adba3c95e11",
+			"parentId": "fld_412143819e8348b49528906bfc4547a0",
+			"modified": 1483425411713,
+			"created": 1483353901723,
+			"url": "{{host}}/emails/send",
+			"name": "4. send email",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"template\": {\n\t\t\"code\": \"ticket-email\"\n\t},\n\t\"to\": {\n\t\t\"field\": \"email\"\n\t},\n\t\"data\": {\n\t\t\"id\": \"ticket-1234\",\n\t\t\"code\": \"meeting\",\n\t\t\"email\": \"sunny.parkash@gmail.com\",\n\t\t\"monument\": {\n\t\t\t\"name\": \"Taj Mahal\",\n\t\t\t\"code\": \"TAJ\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215518.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_c7045aad33f94f13a28d0f1fef466709",
+			"parentId": "fld_412143819e8348b49528906bfc4547a0",
+			"modified": 1483275471810,
+			"created": 1483275150273,
+			"url": "{{host}}/clients",
+			"name": "1. create client",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"code\": \"asi\",\n\t\"name\": \"Archieological Survey of India\",\n\t\"config\": {\n\t\t\"email\": {\n\t\t\t\"provider\": \"mailgun\"\n\t\t},\n\t\t\"mailgun\": {\n            \"api_key\": \"key-282fc812c1d12ad036bcd40e566289f3\",\n\t\t\t\"domain\": \"applegos.in\"\n\t\t}\n\t},\n\t\"owner\": {\n\t\t\"name\": \"ASI Online\",\n\t\t\"email\": \"websiteasi@gmail.com\"\n\t\t\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215619.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d4a033e75b3c4c6ea7aaea8b79af1032",
+			"parentId": "fld_412143819e8348b49528906bfc4547a0",
+			"modified": 1483425073518,
+			"created": 1483275629092,
+			"url": "{{host}}/templates",
+			"name": "2. create ticket attachment template",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": " {\n     \"code\": \"ticket-pdf\",\n     \"subject\": \"{{monument.code}}-ticket.pdf\",\n     \"body\": \"Test Template Content QR Code <img src='{{qrcode code}}'>  Bar code <img src='{{barcode code angle=90}}'>\",\n     \"config\": {\n         \"height\": \"11.7in\",\n         \"width\": \"8.3in\",\n         \"border\": {\n             \"top\": \"0.2in\",\n             \"right\": \"0.2in\",\n             \"bottom\": \"0.2in\",\n             \"left\": \"0.2in\"\n         },\n         \"orientation\": \"portrait\"\n     }\n }"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215568.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_38cd3c141d2444ed830c14f534fa3b1a",
+			"parentId": "fld_5390f0cf5ec741ad88c0049a1e9282fd",
+			"modified": 1483253105581,
+			"created": 1483251579973,
+			"url": "{{host}}/clients/my",
+			"name": "get my client",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "",
+					"value": "",
+					"disabled": true
+				}
+			],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1483251579973,
+			"_type": "request"
+		},
+		{
+			"_id": "req_42ba3d65e6844b13a0d32b4b3e9c3c81",
+			"parentId": "fld_5390f0cf5ec741ad88c0049a1e9282fd",
+			"modified": 1483343471387,
+			"created": 1482994583921,
+			"url": "{{host}}/clients",
+			"name": "create",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"code\": \"{{clientCode}}\",\n\t\"name\": \"{{clientName}}\",\n\t\"config\": {\n\t\t\"email\": {\n\t\t\t\"provider\": \"mailgun\"\n\t\t},\n\t\t\"mailgun\": {\n            \"api_key\": \"key-72f99a7cc2ec876a0f31e17760a3deed\",\n\t\t\t\"domain\": \"sandbox32f79e417cb14e1f8856d7e011a7cd02.mailgun.org\"\n\t\t}\n\t},\n\t\"owner\": {\n\t\t\"name\": \"Rajib Dripa\",\n\t\t\"email\": \"sunny.parkash@gmail.com\"\n\t\t\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1482994583921,
+			"_type": "request"
+		},
+		{
+			"_id": "req_a0329ccc9356402c9c19371ce4c14e68",
+			"parentId": "fld_5390f0cf5ec741ad88c0049a1e9282fd",
+			"modified": 1483274210918,
+			"created": 1483253297801,
+			"url": "{{host}}/clients/my",
+			"name": "update",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Guru Kashi Univeristy2\",\n\t\"config\": {\n\t\t\"email\": {\n\t\t\t\"provider\": \"mailgun\"\n\t\t},\n\t\t\"mailgun\": {\n            \"api_key\": \"key-282fc812c1d12ad036bcd40e566289f3\",\n\t\t\t\"domain\": \"applegos.in\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1482994583920,
+			"_type": "request"
+		},
+		{
+			"_id": "req_6dbe1cd646e54db689202a1f0f4b5a76",
+			"parentId": "fld_6f53055293404ca380eec9ec4dc05a73",
+			"modified": 1483346453317,
+			"created": 1483252152195,
+			"url": "",
+			"name": "create",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"code\": \"attendanceEmail\",\n\t\"type\": \"email\",\n\t\"schedule\": {\n\t\t\"hour\": 16,\n\t\t\"minute\": 45\n\t},\n\t\"template\": {\n\t\t\"code\": \"attendanceEmail\"\n\t},\n\t\"client\": {\n\t\t\"code\": \"gku\"\n\t},\n\t\"data\": {\n\t\t\"source\": {\n\t\t\t\"url\": \"http://edu-api.azurewebsites.net/api/v2/employees/search?f%5B0%5D%5Bf%5D=employee_status&f%5B0%5D%5Bo%5D=eq&f%5B0%5D%5Bv%5D=approved&noPaging=true&api-token=4D8E7C19-457E-4F9E-9448-63FB573ED6D9\",\n\t\t\t\"field\": \"items\",\n\t\t\t\"type\": \"array\",\n\t\t\t\"inject\": {\n\t\t\t\t\"status\": \"approved\",\n\t\t\t\t\"token\": \"4D8E7C19-457E-4F9E-9448-63FB573ED6D9\"\n\t\t\t},\n\t\t\t\"headers\": {\n\t\t\t\t\"orgCode\": \"gku\"\n\t\t\t}\n\t\t}\n\t},\n\t\"config\": {\n\t\t\"to\": {\n\t\t\t\"field\": \"User.Email\"\n\t\t},\n\t\t\"from\": \"info@gurukashiuniversity.in\"\n\t},\n\t\"notify\": [\n\t\t\"sunny.parkash@gmail.com\",\n\t\t\"sunnyaro@gmail.com\"\n\t]\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1483252152195,
+			"_type": "request"
+		},
+		{
+			"_id": "req_c158adb17b69455fa55e85ecf345bfab",
+			"parentId": "fld_6f53055293404ca380eec9ec4dc05a73",
+			"modified": 1483347030470,
+			"created": 1483346439782,
+			"url": "{{host}}/jobs",
+			"name": "list",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1483346439782,
+			"_type": "request"
+		},
+		{
+			"_id": "req_75c25e070d524a06a96dec302a90d3b4",
+			"parentId": "fld_94116ef6667a4919b060f3dd9ba912d2",
+			"modified": 1483256336136,
+			"created": 1483256305065,
+			"url": "{{host}}/email/send",
+			"name": "send (template code)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\n\t\"template\": {\n\t\t\"code\": \"greetings-diwali-gku\"\n\t},\n\t\"config\": {\n\t\t\"to\": {\n            \"field\": \"email\"\n        },\n        \"from\": \"Guru Kashi University<info@gurukashiuniversity.in>\"\n\t},\n\t\"data\": {\n\t\t\"name\": \"sunny\",\n\t\t\"email\": \"sunny.parkash@gmail.com\",\n\t\t\"message\": \"test\"\n\t}      \n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1483251614623,
+			"_type": "request"
+		},
+		{
+			"_id": "req_a30d036eafe64c9baa9528f12cf46bc5",
+			"parentId": "fld_94116ef6667a4919b060f3dd9ba912d2",
+			"modified": 1483256316541,
+			"created": 1483251692266,
+			"url": "{{host}}/email/send",
+			"name": "send from url",
+			"method": "GET",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\n\t\"template\": {\n\t\t\"code\": \"greetings-diwali-gku\"\n\t},\n\t\"config\": {\n\t\t\"to\": {\n            \"field\": \"User.Email\"\n        },\n        \"from\": \"Guru Kashi University<info@gurukashiuniversity.in>\"\n\t},\n\t\"data\":  {\n\t\t\"source\": {\n\t\t\t\"url\": \"http://edu-api.azurewebsites.net/api/v2/employees/search?f%5B0%5D%5Bf%5D=employee_status&f%5B0%5D%5Bo%5D=eq&f%5B0%5D%5Bv%5D=approved&noPaging=true&api-token=4D8E7C19-457E-4F9E-9448-63FB573ED6D9\",\n\t\t\t\"field\": \"items\",\n\t\t\t\"type\": \"array\",\n\t\t\t\"inject\": {\n\t\t\t\t\"status\": \"approved\",\n\t\t\t\t\"token\": \"4D8E7C19-457E-4F9E-9448-63FB573ED6D9\"\n\t\t\t},\n\t\t\t\"headers\": {\n\t\t\t\t\"orgCode\": \"gku\"\n\t\t\t}\n\t\t}\n\t}\n\t\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1483251614623,
+			"_type": "request"
+		},
+		{
+			"_id": "req_aceb3e9b0e9841d29719f30fb0fe8d8f",
+			"parentId": "fld_94116ef6667a4919b060f3dd9ba912d2",
+			"modified": 1483329385574,
+			"created": 1483251614624,
+			"url": "{{host}}/emails/send",
+			"name": "send (template)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"template\": {\n\t\t\"code\": \"ticketPdf\"\n\t},\n\t\"to\": {\n\t\t\"field\": \"email\"\n\t},\n\t\"data\": {\n\t\t\"code\": \"sunny\",\n\t\t\"email\": \"sunny.parkash@gmail.com\",\n\t\t\"monument\": {\n\t\t\t\"code\": \"TAJ\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1483251614624,
+			"_type": "request"
+		},
+		{
+			"_id": "req_1e2e8a579df348deba1fa17e9e745626",
+			"parentId": "fld_97dfda738a2247dab0373cb94c8ecf80",
+			"modified": 1483425808536,
+			"created": 1483347435239,
+			"url": "{{host}}/docs/employeeCardPdf/860.pdf",
+			"name": "4. get profile doc",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [
+				{
+					"name": "",
+					"value": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "client-code",
+					"value": "{{clientCode}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215518.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_30b3a541289c49b9a12e5082b15e8b7b",
+			"parentId": "fld_97dfda738a2247dab0373cb94c8ecf80",
+			"modified": 1483343574998,
+			"created": 1483343512039,
+			"url": "{{host}}/clients",
+			"name": "1. create client",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"code\": \"kmt\",\n\t\"name\": \"K Machine Tools\",\n\t\"config\": {\n\t\t\"email\": {\n\t\t\t\"provider\": \"mailgun\"\n\t\t},\n\t\t\"mailgun\": {\n            \"api_key\": \"key-282fc812c1d12ad036bcd40e566289f3\",\n\t\t\t\"domain\": \"applegos.in\"\n\t\t}\n\t},\n\t\"owner\": {\n\t\t\"name\": \"Rajib Daripa\",\n\t\t\"email\": \"sunny.parkash@gmail.com\"\n\t\t\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215618.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_b3f81805f39243fab5f147d9dfa618e3",
+			"parentId": "fld_97dfda738a2247dab0373cb94c8ecf80",
+			"modified": 1483344929787,
+			"created": 1483343642772,
+			"url": "{{host}}/templates",
+			"name": "2. create profile pdf",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": " {\n     \"code\": \"employeeCardPdf\",\n     \"subject\": \"employee card\",\n     \"body\": \"{{User.Name}}\",\n     \"config\": {\n         \"height\": \"11.7in\",\n         \"width\": \"8.3in\",\n         \"border\": {\n             \"top\": \"0.2in\",\n             \"right\": \"0.2in\",\n             \"bottom\": \"0.2in\",\n             \"left\": \"0.2in\"\n         },\n         \"orientation\": \"portrait\"\n     }\n }"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215593.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_e8d05b99384d4678a35d170562f96f2e",
+			"parentId": "fld_97dfda738a2247dab0373cb94c8ecf80",
+			"modified": 1483348340003,
+			"created": 1483343595151,
+			"url": "{{host}}/jobs",
+			"name": "3. create get profile job",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"code\": \"employeeCardPdf\",\n\t\"processor\": \"doc\",\n\t\"template\": {\n\t\t\"code\": \"employeeCardPdf\"\n\t},\n\t\"data\": {\n\t\t\"source\": {\n\t\t\t\"url\": \"http://aqua.edualaya.com/api/v2/employees/get/{{dataId}}\",\n\t\t\t\"field\": \"data\",\n\t\t\t\"type\": \"object\",\n\t\t\t\"headers\": {\n\t\t\t\t\"orgCode\": \"kmt\",\n\t\t\t\t\"x-access-token\": \"4a78cbcb-18e4-4538-bb93-a9eb51b56135\"\n\t\t\t}\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1477265215568.25,
+			"_type": "request"
+		},
+		{
+			"_id": "req_56bae79352dd4c109e36054cdabec3fc",
+			"parentId": "fld_f688c9f267e7454b8f09ff27aa70497b",
+			"modified": 1483250421846,
+			"created": 1483250333581,
+			"url": "{{host}}/templates",
+			"name": "create with template",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": " {\n     \"code\": \"test-email-with-attachment\",\n     \"subject\": \"Test Email\",\n\t \"attachment\": {\n\t\t \"code\":\"test-template\" \n\t },\n     \"body\": \"Test Email Content\"\n }"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1482994507802,
+			"_type": "request"
+		},
+		{
+			"_id": "req_5bcd4de3b4d4424385c03c11f59099f2",
+			"parentId": "fld_f688c9f267e7454b8f09ff27aa70497b",
+			"modified": 1483250378678,
+			"created": 1482994507803,
+			"url": "{{host}}/templates",
+			"name": "create",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": " {\n     \"code\": \"test-template\",\n     \"subject\": \"Test Template\",\n     \"body\": \"Test Template Content\",\n     \"config\": {\n         \"height\": \"11.7in\",\n         \"width\": \"8.3in\",\n         \"border\": {\n             \"top\": \"0.2in\",\n             \"right\": \"0.2in\",\n             \"bottom\": \"0.2in\",\n             \"left\": \"0.2in\"\n         },\n         \"orientation\": \"portrait\"\n     }\n }"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1482994507803,
+			"_type": "request"
+		},
+		{
+			"_id": "req_ab5061028f5b4a1281ad562b03a67b3c",
+			"parentId": "fld_f688c9f267e7454b8f09ff27aa70497b",
+			"modified": 1483300001724,
+			"created": 1483291894319,
+			"url": "{{host}}/templates/58693b55da80ef23fa150c6b",
+			"name": "update",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"subject\": \"{{hi}}\"\n} "
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1482994507802,
+			"_type": "request"
+		},
+		{
+			"_id": "req_b1841e7e738f4b81a93dc82190b7c265",
+			"parentId": "fld_f688c9f267e7454b8f09ff27aa70497b",
+			"modified": 1483269419604,
+			"created": 1483269395769,
+			"url": "{{host}}/templates",
+			"name": "list",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "x-access-token",
+					"value": "{{token}}"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1482994507802,
+			"_type": "request"
+		}
+	]
+}
